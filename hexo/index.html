@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>hexo使用指南 | Leenham的影落</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="常用命令123456789101112131415&gt;hexo d -g# d代表deploy(部署&#x2F;发布), g代表 generate(生成&#x2F;编译)&gt;hexo server# 本地通过localhost:4000进行调试&gt;hexo server --draft# 本地调试查看草稿&gt;hexo new post &quot;title&quot;# 新建一篇">
+<meta property="og:type" content="website">
+<meta property="og:title" content="hexo使用指南">
+<meta property="og:url" content="http://leenham.cn/hexo/index.html">
+<meta property="og:site_name" content="Leenham的影落">
+<meta property="og:description" content="常用命令123456789101112131415&gt;hexo d -g# d代表deploy(部署&#x2F;发布), g代表 generate(生成&#x2F;编译)&gt;hexo server# 本地通过localhost:4000进行调试&gt;hexo server --draft# 本地调试查看草稿&gt;hexo new post &quot;title&quot;# 新建一篇">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2020-07-10T20:09:57.000Z">
+<meta property="article:modified_time" content="2020-07-10T21:13:53.448Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Leenham的影落" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Leenham的影落</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Leenham的个人博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://leenham.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/hexo/index.html" class="article-date">
+  <time datetime="2020-07-10T20:09:57.000Z" itemprop="datePublished">2020-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hexo使用指南
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;hexo d -g</span><br><span class="line"># d代表deploy(部署&#x2F;发布), g代表 generate(生成&#x2F;编译)</span><br><span class="line">&gt;hexo server</span><br><span class="line"># 本地通过localhost:4000进行调试</span><br><span class="line">&gt;hexo server --draft</span><br><span class="line"># 本地调试查看草稿</span><br><span class="line">&gt;hexo new post &quot;title&quot;</span><br><span class="line"># 新建一篇名为title的文章，在source&#x2F;_post&#x2F;中访问，部署后网站可见</span><br><span class="line"># 引号可省略</span><br><span class="line">&gt;hexo new draft title</span><br><span class="line"># 新建一篇名为title的草稿，在source&#x2F;_draft&#x2F;中访问，部署后默认不可见</span><br><span class="line">&gt;hexo new page title</span><br><span class="line"># 新建一篇名为title的页面，在source&#x2F;中访问，部署后通过 域名+&#x2F;title 访问,例：localhost:4000&#x2F;title, 且不会加入到博客的首页中</span><br><span class="line">&gt;hexo public title</span><br><span class="line"># 将名为title的草稿发布。</span><br></pre></td></tr></table></figure>
+
+<h3 id="hexo导入相关资源-hexo-写作教程"><a href="#hexo导入相关资源-hexo-写作教程" class="headerlink" title="hexo导入相关资源 [^hexo 写作教程]"></a>hexo导入相关资源 [^hexo 写作教程]</h3><p>以导入图片为例：</p>
+<ol>
+<li>（不推荐）在source文件夹下新建文件夹imgs存储，利用markdown语法 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    导入图片。在首页时会无法显示，且导入的图片会显示title</span><br><span class="line">2. 将 _config.yml_ 文件中的 *post_asset_folder* 选项 设为 __true__ 来打开。新建文章[^hexo写作教程]后会生成同名的文件夹，用于存放和该篇博客的资源。引用时语法为</span><br></pre></td></tr></table></figure>
+ 
+ 
+ 
+ slug 替换成对应的链接地址<h1 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h1> 
+<pre><code>&amp;#10037;</code></pre></li>
+</ol>
+<hr>
+<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><p>&#9989; <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">hexo写作教程</a></p>
+<p>&#9989; <a href="https://hexo.io/docs/commands" target="_blank" rel="noopener">hexo使用教程</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://leenham.cn/hexo/index.html" data-id="ckcgohbku0000mcu0eb6n2q5y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/10/blogog-with-img/">blogog_with_img</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/try/">try</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/30/%E6%96%97%E9%B1%BC%E7%BD%91%E9%A1%B5%E6%95%B0%E5%80%BC%E4%BF%AE%E6%94%B9%E5%99%A8/">斗鱼网页数值修改器</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/29/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
