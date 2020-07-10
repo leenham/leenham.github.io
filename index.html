@@ -507,7 +507,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/07/11/md/" itemprop="url">md</a></h1>
+                <a class="post-title-link" href="/2020/07/11/md/" itemprop="url">markdown使用指南</a></h1>
         
 
         <div class="post-meta">
@@ -542,7 +542,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/manual/" itemprop="url" rel="index">
+                  <a href="/categories/%E6%8C%87%E5%8D%97/" itemprop="url" rel="index">
                     <span itemprop="name">指南</span>
                   </a>
                 </span>
@@ -580,10 +580,14 @@
 
       
         
-          
-            <p>markdown 语法指南</p>
-
-          
+          <p>关于markdown的一些用法，按需取</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/07/11/md/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -649,7 +653,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/07/11/hexo/" itemprop="url">hexo</a></h1>
+                <a class="post-title-link" href="/2020/07/11/hexo/" itemprop="url">hexo使用指南</a></h1>
         
 
         <div class="post-meta">
@@ -684,7 +688,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/manual/" itemprop="url" rel="index">
+                  <a href="/categories/%E6%8C%87%E5%8D%97/" itemprop="url" rel="index">
                     <span itemprop="name">指南</span>
                   </a>
                 </span>
@@ -722,23 +726,14 @@
 
       
         
-          
-            <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;hexo d -g</span><br><span class="line"># d代表deploy(部署&#x2F;发布), g代表 generate(生成&#x2F;编译)</span><br><span class="line">&gt;hexo server</span><br><span class="line"># 本地通过localhost:4000进行调试</span><br><span class="line">&gt;hexo server --draft</span><br><span class="line"># 本地调试查看草稿</span><br><span class="line">&gt;hexo new post &quot;title&quot;</span><br><span class="line"># 新建一篇名为title的文章，在source&#x2F;_post&#x2F;中访问，部署后网站可见</span><br><span class="line"># 引号可省略</span><br><span class="line">&gt;hexo new draft title</span><br><span class="line"># 新建一篇名为title的草稿，在source&#x2F;_draft&#x2F;中访问，部署后默认不可见</span><br><span class="line">&gt;hexo new page title</span><br><span class="line"># 新建一篇名为title的页面，在source&#x2F;中访问，部署后通过 域名+&#x2F;title 访问,例：localhost:4000&#x2F;title, 且不会加入到博客的首页中</span><br><span class="line">&gt;hexo publish title</span><br><span class="line"># 将名为title的草稿发布。</span><br></pre></td></tr></table></figure>
-
-<h3 id="hexo导入相关资源-hexo-写作教程"><a href="#hexo导入相关资源-hexo-写作教程" class="headerlink" title="hexo导入相关资源 [^hexo 写作教程]"></a>hexo导入相关资源 [^hexo 写作教程]</h3><p>以导入图片为例：</p>
-<ol>
-<li>（不推荐）在source文件夹下新建文件夹imgs存储，利用markdown语法 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    导入图片。在首页时会无法显示，且导入的图片会显示title</span><br><span class="line">2. 将 _config.yml_ 文件中的 *post_asset_folder* 选项 设为 __true__ 来打开。新建文章[^hexo写作教程]后会生成同名的文件夹，用于存放和该篇博客的资源。引用时语法为</span><br></pre></td></tr></table></figure>
- 
- 
- 
- slug 替换成对应的链接地址<h1 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h1> 
-<pre><code>&amp;#10037;</code></pre></li>
-</ol>
-<hr>
-<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><p>&#9989; <a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="noopener">hexo写作教程</a></p>
-<p>&#9989; <a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">hexo使用教程</a></p>
-
-          
+          <p>涵盖一些常用的hexo命令行指令及用法</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/07/11/hexo/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -839,7 +834,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/topic/" itemprop="url" rel="index">
+                  <a href="/categories/%E4%B8%93%E9%A2%98/" itemprop="url" rel="index">
                     <span itemprop="name">专题</span>
                   </a>
                 </span>
