@@ -320,9 +320,7 @@
 
       
         
-          
-            <a id="more"></a>
-<p>题目列表:</p>
+          <p>题目列表:</p>
 <ol>
 <li>第 k 个缺失的正整数</li>
 <li>K 次操作转变字符串</li>
@@ -330,59 +328,13 @@
 <li>找出最长的超赞子字符串<br>
 <a href="https://leetcode-cn.com/contest/biweekly-contest-32/" target="_blank" rel="noopener">周赛地址</a></li>
 </ol>
-<!-- more -->
-<h3 id="第k个缺失的正整数">第k个缺失的正整数</h3>
-<ul>
-<li>思路: 用额外数组记录所有正整数是否缺失.逐个比对</li>
-<li>总结: 在空间效率上还能有所提升,但是比赛时不宜在这方面浪费太多时间.只要在可允许范围内,因优先考虑快速解法.</li>
-</ul>
-<details>
-<summary>代码</summary>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@lucifer1004</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findKthPositive</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">c</span><span class="params">(<span class="number">2001</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : arr)</span><br><span class="line">            c[i] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">int</span> v = <span class="number">0</span>, i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (v &lt; k) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            <span class="keyword">if</span> (!c[i])</span><br><span class="line">                v++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java重写版</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findKthPositive</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span>[] rec = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">2001</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i:arr)</span><br><span class="line">            rec[i] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> acc = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; k)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!rec[++acc])</span><br><span class="line">                i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> acc;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-<!-- end of 1st question -->
-<h3 id="K-次操作转变字符串">K 次操作转变字符串</h3>
-<ul>
-<li>思路: 解读题意,为表述方便,不妨假设字符a转换成字符b需要的次数称为字符的距离.且存在周期为26(即字符集a–z大小),即距离27效果等同距离1.第i次操作的距离必须为i. 操作位置和顺序先后无关,因此等价为若干次操作,每次操作的距离不相同<br>
-因此,登记对应字符间的距离,若已登记,则加上周期T=26.<br>
-进一步优化,可以先记录1到25距离每种距离的次数,而后将次数换成周期,求出使得i最大的操作次数hi,比较hi和k的大小</li>
-<li>比赛时我的解法是根据k求出1到25每种距离能出现的次数上限,而后逐个比较s和t的字符,当登记次数和上限冲突时即返回false.殊途同归.</li>
-<li>总结:当遇到不允许出现重复元素时,应想到哈希集或哈希表,本题存在周期(因为周期默认使用最小周期,因此等价于每个元素出现的次数),因此用到了哈希表. 元素范围固定,因此可以直接使用数组代替哈希表.总体来说不难</li>
-</ul>
-<details>
-<summary>代码</summary>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@lucifer1004</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canConvertString</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.<span class="built_in">size</span>() != t.<span class="built_in">size</span>())</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//长度相等才有后续比较的意义</span></span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">cnt</span><span class="params">(<span class="number">26</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> delta = (t[i] - s[i] + <span class="number">26</span>) % <span class="number">26</span>;</span><br><span class="line">            cnt[delta]++;<span class="comment">//登记每种距离的次数</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> hi = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//根据登记次数计算最大需要的次数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">26</span>; ++i)</span><br><span class="line">            hi = <span class="built_in">max</span>(hi, (cnt[i] - <span class="number">1</span>) * <span class="number">26</span> + i);<span class="comment">//若登记次数为0,则参数2为负数,不影响结果</span></span><br><span class="line">        <span class="keyword">return</span> hi &lt;= k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canConvertString</span><span class="params">(String s, String t, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length()!=t.length())</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span>[] cnt = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> dist = (t.charAt(i) - s.charAt(i) + <span class="number">26</span>)%<span class="number">26</span>;</span><br><span class="line">            cnt[dist]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> hi = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">26</span>;i++)</span><br><span class="line">            hi = Math.max(hi,(cnt[i]-<span class="number">1</span>)*<span class="number">26</span>+i);</span><br><span class="line">        <span class="keyword">return</span> hi&lt;=k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-<!-- end of 2nd question -->
-<h3 id="平衡括号字符串的最少插入次数">平衡括号字符串的最少插入次数</h3>
-<ul>
-<li>思路:需要注意的是,必须连续的两个右括号才能对应左括号.lucifer是先统计’(‘和’)‘的出现次数,然后批量处理,在效率上更优. 处理过程为:若’)'出现次数为奇数,则补齐为偶数(记为t). '('数目减去t/2, 不足的数量补齐.   <em>补齐的意思是插入对应的括号,代码表现为在最终返回结果上记录需要插入的次数</em></li>
-<li>总结:本身题目不难,就是逻辑有点繁琐.</li>
-</ul>
-<details>
-<summary>代码</summary>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@lucifer1004</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minInsertions</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt;&gt; v;</span><br><span class="line">        <span class="keyword">char</span> l = <span class="string">'$'</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        s += <span class="string">"#"</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c == l)</span><br><span class="line">                cnt++;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (cnt &gt; <span class="number">0</span>)</span><br><span class="line">                    v.emplace_back(l, cnt);</span><br><span class="line">                cnt = <span class="number">1</span>;</span><br><span class="line">                l = c;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>, bal = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> p : v) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = p.first;</span><br><span class="line">            <span class="keyword">int</span> t = p.second;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">')'</span> &amp;&amp; t % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                ans++;</span><br><span class="line">                t++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'('</span>)</span><br><span class="line">                bal += t;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                bal -= t / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (bal &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                ans -= bal;</span><br><span class="line">                bal = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans += bal * <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//处理逻辑各显神通,就不翻译大佬代码了,直接贴自己通过的代码</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minInsertions</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> lcnt = <span class="number">0</span>;                         </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> ch = s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(ch==<span class="string">'('</span>)&#123;</span><br><span class="line">               lcnt++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(i+<span class="number">1</span>&lt;s.length() &amp;&amp; s.charAt(i+<span class="number">1</span>)==<span class="string">')'</span>)&#123;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    ret++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(lcnt&gt;<span class="number">0</span>)</span><br><span class="line">                    lcnt--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    ret++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ret += lcnt*<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-<!-- end of 3rd question -->
-<h3 id="找出最长的超赞子字符串">找出最长的超赞子字符串</h3>
-<ul>
-<li>思路: 转换题意后不难发现,所以求任意次数后可变成回文串的子串,本质上是求子串中的字符出现次数均为偶数,有0个或1个字符出现为奇数. 由于只关注出现次数的<strong>奇偶性</strong>,因此只需要一个bit来标记,题目暗示了字符集为0-9,因此应自然而然想到<strong>状态压缩</strong>. 连续子串问题应联想到<strong>前缀和</strong>的方法,且仅需统计字符次数,也符合使用前缀和算法的条件.</li>
-<li>使用10个bit来表示前缀和中每个字符出现的次数.原问题转换成从前缀和中寻找配对的前缀.</li>
-<li>总结: 状态压缩+前缀和这层我想通了,但是允许存在最多1个字符出现奇数次,不知道该如何处理这类情况导致我卡壳了.问题在于,寻找匹配对时,本题是1对多,而不是两数之和问题中1对1那么简单. 当存在多种配对可能时,应考虑遍历所有配对可能.</li>
-</ul>
-<details>
-<summary>代码</summary>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@lucifer1004</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">longestAwesome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">first</span><span class="params">(<span class="number">1</span> &lt;&lt; <span class="number">10</span>, <span class="number">-1</span>)</span></span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; good = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i)</span><br><span class="line">            good.emplace_back(<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">        first[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = s.<span class="built_in">size</span>(), state = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> c = s[i - <span class="number">1</span>] - <span class="string">'0'</span>;</span><br><span class="line">            state ^= (<span class="number">1</span> &lt;&lt; c);</span><br><span class="line">            <span class="keyword">if</span> (first[state] == <span class="number">-1</span>)</span><br><span class="line">                first[state] = i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> g : good) &#123;</span><br><span class="line">                <span class="keyword">int</span> need = g ^ state;</span><br><span class="line">                <span class="keyword">if</span> (first[need] != <span class="number">-1</span>)</span><br><span class="line">                    ans = <span class="built_in">max</span>(ans, i - first[need]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> mask)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (mask &amp; mask-<span class="number">1</span>)==<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestAwesome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1</span>&lt;&lt;<span class="number">10</span>+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">        Arrays.fill(dp,-<span class="number">1</span>);</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> status = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] mask = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">11</span>];</span><br><span class="line">        mask[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            mask[i+<span class="number">1</span>] = <span class="number">1</span>&lt;&lt;i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> digit = s.charAt(i-<span class="number">1</span>)-<span class="string">'0'</span>;</span><br><span class="line">            status ^= <span class="number">1</span>&lt;&lt;digit;</span><br><span class="line">            <span class="keyword">if</span>(dp[status]==-<span class="number">1</span>)</span><br><span class="line">                dp[status] = i;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;mask.length;j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> need = status ^ mask[j];</span><br><span class="line">                <span class="keyword">if</span>(dp[need]!=-<span class="number">1</span>)</span><br><span class="line">                    ret = Math.max(ret,i-dp[need]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-<!-- end of 4th question -->
-<p><em><strong>注:除特别声明,本篇都以周赛第一@lucifer1004的代码为参考,根据他的代码(C++),用java重写了一遍</strong></em></p>
-<!-- end -->
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/08/daily0808/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -504,153 +456,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/07/14/cpp%E8%AF%AD%E6%B3%95/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leenham.github.io/2020/07/14/daily-leetcode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leenham">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/roroavatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leenham's BLOG">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/14/daily-leetcode/" itemprop="url">地下城游戏</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-14T03:33:41+08:00">
-                2020-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/" itemprop="url" rel="index">
-                    <span itemprop="name">算法题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <!-- 0714 -->
-<h3 id="174-地下城游戏"><a href="#174-地下城游戏" class="headerlink" title="174.地下城游戏"></a><a href="https://leetcode-cn.com/problems/dungeon-game/" target="_blank" rel="noopener">174.地下城游戏</a></h3><p>一些恶魔抓住了公主（P）并将她关在了地下城的右下角。地下城是由 M x N 个房间组成的二维网格。我们英勇的骑士（K）最初被安置在左上角的房间里，他必须穿过地下城并通过对抗恶魔来拯救公主。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/07/14/daily-leetcode/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1474,7 +1279,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
