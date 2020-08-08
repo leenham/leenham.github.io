@@ -250,6 +250,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://leenham.github.io/2020/08/09/cpp%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leenham">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/roroavatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leenham's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/09/cpp%E8%AF%AD%E6%B3%95/" itemprop="url">cpp语法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-09T06:49:40+08:00">
+                2020-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+
+<p>虽然喜欢java,但是C++也要会用.<br>记录一些C++的语法并释疑,以备不时之需.</p>
+<!-- more -->
+<ul>
+<li><p>auto </p>
+<ul>
+<li>auto可以在声明变量的时候根据变量初始值的类型自动为此变量选择匹配的类型</li>
+<li>auto的自动类型推断发生在编译期，所以使用auto并不会造成程序运行时效率的降低。</li>
+<li>auto 变量必须在定义时初始化，这类似于const关键字。</li>
+<li>初始化表达式为数组时，auto关键字推导类型为指针。</li>
+<li>若表达式为数组且auto带上&amp;，则推导类型为数组类型。</li>
+<li>auto仅仅是一个占位符，它并不是一个真正的类型.</li>
+<li>函数或者模板参数不能被声明为auto</li>
+</ul>
+</li>
+<li><p>emplace_back vs. push_back</p>
+<ul>
+<li>通常使用push_back()向容器中添加元素时，首先会调用构造函数，然后需要调用拷贝构造函数,将这个临时对象放入容器中。原来的临时变量释放。造成临时变量申请资源的浪费。</li>
+<li>C++11新加的emplace_back在插入的时候直接构造，就只需要构造一次即可。</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://leenham.github.io/2020/07/14/daily-leetcode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -269,7 +411,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/07/14/daily-leetcode/" itemprop="url">每日一题之地下城游戏</a></h1>
+                <a class="post-title-link" href="/2020/07/14/daily-leetcode/" itemprop="url">地下城游戏</a></h1>
         
 
         <div class="post-meta">
@@ -304,19 +446,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E9%A2%98/" itemprop="url" rel="index">
-                    <span itemprop="name">专题</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E9%A2%98/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index">
-                    <span itemprop="name">每日一题</span>
+                  <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">算法题</span>
                   </a>
                 </span>
 
@@ -408,7 +539,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://leenham.github.io/2020/07/12/20100712/">
+    <link itemprop="mainEntityOfPage" href="http://leenham.github.io/2020/07/14/daily0714/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leenham">
@@ -427,7 +558,154 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/07/12/20100712/" itemprop="url">Leetcode周赛0712</a></h1>
+                <a class="post-title-link" href="/2020/07/14/daily0714/" itemprop="url">每日一题之地下城游戏</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-14T03:33:41+08:00">
+                2020-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">算法题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <!-- 0714 -->
+<h3 id="174-地下城游戏"><a href="#174-地下城游戏" class="headerlink" title="174.地下城游戏"></a><a href="https://leetcode-cn.com/problems/dungeon-game/" target="_blank" rel="noopener">174.地下城游戏</a></h3><p>一些恶魔抓住了公主（P）并将她关在了地下城的右下角。地下城是由 M x N 个房间组成的二维网格。我们英勇的骑士（K）最初被安置在左上角的房间里，他必须穿过地下城并通过对抗恶魔来拯救公主。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/07/14/daily0714/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://leenham.github.io/2020/07/12/daily0712/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leenham">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/roroavatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leenham's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/12/daily0712/" itemprop="url">Leetcode周赛0712</a></h1>
         
 
         <div class="post-meta">
@@ -462,19 +740,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E9%A2%98/" itemprop="url" rel="index">
-                    <span itemprop="name">专题</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%93%E9%A2%98/%E5%91%A8%E8%B5%9B/" itemprop="url" rel="index">
-                    <span itemprop="name">周赛</span>
+                  <a href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">算法题</span>
                   </a>
                 </span>
 
@@ -519,7 +786,7 @@
 <li><a href="#服务中心的最佳位置">服务中心的最佳位置</a>：求使得欧式距离最小的寻址问题
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/07/12/20100712/#more" rel="contents">
+            <a class="btn" href="/2020/07/12/daily0712/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -954,27 +1221,14 @@
 
       
         
-          
-            <h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p><a href="https://github.com/leenham/modifier_extension" target="_blank" rel="noopener">斗鱼网页数值修改器</a></p>
-<hr>
-<p>特此总结一些知识点。</p>
-<p>popup可以直接获取background句柄，来访问background环境。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bg &#x3D; chrome.extension.getBackgroundPage();</span><br></pre></td></tr></table></figure>
-
-<p>在使用localStorage做存储时，注意其保存的都是字符串，因此需要使用JSON.stringify &amp; JSON.parse来对数据处理。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bg.localStorage[&quot;data&quot;] &#x3D; JSON.stringify(data);&#x2F;&#x2F; storage</span><br><span class="line">data &#x3D; JSON.parse(bg.localStorage[&quot;data&quot;]);    &#x2F;&#x2F; usage</span><br></pre></td></tr></table></figure>
-
-<p>chrome自带的控制台也支持jQuery风格的选取器。但是有些许不同。<br>$(“tag .class #name”) 只会选取出符合选取器的第一个Dom对象。</p>
-<p>注意此处的$ 是chrome默认的函数之一(chrome commandline api)，不同于jQuery选择器。若要选择符合选取器<br>的所有元素，需要使用$$，类似于jQuery的$.</p>
-<p>此外，浏览器选取的元素返回的是Dom元素或Dom元素的数组，而jQuery返回的是jQuery对象，<br>当没有对应结果时，返回结果的length属性为零，以此来判断是否找到匹配元素。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; in chrome console</span><br><span class="line">&#x2F;&#x2F; when $ is a command line api</span><br><span class="line">&gt; $(&quot;.classname&quot;)</span><br><span class="line">&lt; &lt;div class&#x3D;&quot;classname&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&gt; $</span><br><span class="line">&gt; ƒ $(selector, [startNode]) &#123; [Command Line API] &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; when $ is jquery selector</span><br><span class="line">&gt; $(&quot;.m_yc&quot;)</span><br><span class="line">&lt; init [div.m_yc.clearfix, prevObject: init(1), context: document, selector: &quot;.m_yc&quot;]   &#x2F;&#x2F; a jquery object</span><br><span class="line">&gt; $</span><br><span class="line">&lt; ƒ (e,t)&#123;return new b.fn.init(e,t,r)&#125;</span><br></pre></td></tr></table></figure>
-<p>在使用console调试时需注意这点。</p>
-<hr>
-<p>起源于看到一张图片，内容是展示斗鱼账户上近乎离谱的鱼丸鱼翅的数据。</p>
-<p>显然，通过修改网页源代码便可以轻松做到。</p>
-<p>受此启发，同时为了回顾五年前学习的chrome插件编程知识。花了一上午时间进行回顾，并快速实现一个小插件验证。<br>chrome extension经历了一个较大的改革，官方提供了更多地demo，以及兼容原先版本的新语法。<br>主要内容参考<a href="https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html" target="_blank" rel="noopener">这篇攻略</a>。</p>
-
-          
+          <h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p><a href="https://github.com/leenham/modifier_extension" target="_blank" rel="noopener">斗鱼网页数值修改器</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/06/30/%E6%96%97%E9%B1%BC%E7%BD%91%E9%A1%B5%E6%95%B0%E5%80%BC%E4%BF%AE%E6%94%B9%E5%99%A8/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1058,7 +1312,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1069,7 +1323,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1080,7 +1334,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
