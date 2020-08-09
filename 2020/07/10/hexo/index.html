@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Leenham&#39;s BLOG">
 <meta property="og:description" content="涵盖一些常用的hexo命令行指令及用法">
 <meta property="article:published_time" content="2020-07-09T21:35:52.000Z">
-<meta property="article:modified_time" content="2020-07-12T19:18:04.615Z">
+<meta property="article:modified_time" content="2020-08-09T00:05:34.738Z">
 <meta property="article:author" content="Leenham">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -343,30 +343,64 @@
       
         <p>涵盖一些常用的hexo命令行指令及用法</p>
 <a id="more"></a>
-
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;hexo d -g</span><br><span class="line"># d代表deploy(部署&#x2F;发布), g代表 generate(生成&#x2F;编译)</span><br><span class="line">&gt;hexo server</span><br><span class="line"># 本地通过localhost:4000进行调试</span><br><span class="line">&gt;hexo server --draft</span><br><span class="line"># 本地调试查看草稿</span><br><span class="line">&gt;hexo new post &quot;title&quot;</span><br><span class="line"># 新建一篇名为title的文章，在source&#x2F;_post&#x2F;中访问，部署后网站可见</span><br><span class="line"># 引号可省略</span><br><span class="line">&gt;hexo new draft title</span><br><span class="line"># 新建一篇名为title的草稿，在source&#x2F;_draft&#x2F;中访问，部署后默认不可见</span><br><span class="line">&gt;hexo new page title</span><br><span class="line"># 新建一篇名为title的页面，在source&#x2F;中访问，部署后通过 域名+&#x2F;title 访问</span><br><span class="line">#例：localhost:4000&#x2F;title, 且不会加入到博客的首页中</span><br><span class="line">&gt;hexo publish title</span><br><span class="line"># 将名为title的草稿发布。</span><br></pre></td></tr></table></figure>
-<h3 id="写作相关"><a href="#写作相关" class="headerlink" title="写作相关"></a>写作相关</h3><ul>
-<li>使用html语法<code>&amp;#128293;</code>就可以使用特殊图标&#128293; 更多unicode，详见<a href="https://unicode-table.com/cn/" target="_blank" rel="noopener">unicode字符百科</a></li>
+<h3 id="常用命令">常用命令</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;hexo d -g</span><br><span class="line"># d代表deploy(部署&#x2F;发布), g代表 generate(生成&#x2F;编译)</span><br><span class="line">&gt;hexo server</span><br><span class="line"># 本地通过localhost:4000进行调试</span><br><span class="line">&gt;hexo server --draft</span><br><span class="line"># 本地调试查看草稿</span><br><span class="line">&gt;hexo new post &quot;title&quot;</span><br><span class="line"># 新建一篇名为title的文章，在source&#x2F;_post&#x2F;中访问，部署后网站可见</span><br><span class="line"># 引号可省略</span><br><span class="line">&gt;hexo new draft title</span><br><span class="line"># 新建一篇名为title的草稿，在source&#x2F;_draft&#x2F;中访问，部署后默认不可见</span><br><span class="line">&gt;hexo new page title</span><br><span class="line"># 新建一篇名为title的页面，在source&#x2F;中访问，部署后通过 域名+&#x2F;title 访问</span><br><span class="line">#例：localhost:4000&#x2F;title, 且不会加入到博客的首页中</span><br><span class="line">&gt;hexo publish title</span><br><span class="line"># 将名为title的草稿发布。</span><br></pre></td></tr></table></figure>
+<h3 id="写作相关">写作相关</h3>
+<ul>
+<li>使用html语法<code>&amp;#128293;</code>就可以使用特殊图标🔥 更多unicode，详见<a href="https://unicode-table.com/cn/" target="_blank" rel="noopener">unicode字符百科</a></li>
 <li><code>&lt;!-- more --&gt;</code> 可以截取截止该标签的文本内容作为首页上的摘录。</li>
 </ul>
-<h3 id="导入资源"><a href="#导入资源" class="headerlink" title="导入资源"></a>导入资源</h3><ul>
+<h3 id="折叠代码">折叠代码</h3>
+<ul>
+<li>使用html语法插入可折叠组件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;details&gt;</span><br><span class="line">&lt;summary&gt;点击显示折叠内容&lt;&#x2F;summary&gt;</span><br><span class="line">被折叠部分</span><br><span class="line">&lt;&#x2F;details&gt;</span><br></pre></td></tr></table></figure>
+<p>其效果为:</p>
+<details>
+<summary>点击显示折叠内容</summary>
+**被折叠部分**
+</details>
+<ul>
+<li>hexo自带的markdown渲染器在显示上有一些bug,因此需要更新渲染器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 卸载 Hexo 默认自带的 Markdown 渲染器</span><br><span class="line">npm un hexo-renderer-marked --save </span><br><span class="line"># 安装 hexo-renderer-markdown-it 插件</span><br><span class="line">npm i hexo-renderer-markdown-it --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在_config.yml中添加配置内容:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Markdown-it config</span><br><span class="line">#markdown: &#39;zero&#39;</span><br><span class="line">#markdown: &#39;default&#39;</span><br><span class="line">markdown: &#39;commonmark&#39;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>其中</p>
+<ul>
+<li>zero：禁用大多数解析器功能。仅支持斜体和粗体，甚至不支持所有原始Markdown功能。</li>
+<li>default（GFM）：解析器的行为类似于github规范。</li>
+<li>commonmark：提供比Zero预设更多的功能.此设置将强制插件使用最新的CommonMark规范。</li>
+</ul>
+</li>
+<li>
+<p>vscode自带的md解释器会有无法正常解析md语法的显示bug,只需要在</summary>后<strong>添加空行</strong>,然后再加上md语法即可.</p>
+</li>
+</ul>
+<h3 id="导入资源">导入资源</h3>
+<ul>
 <li>以导入图片为例：</li>
 </ul>
 <ol>
 <li>（不推荐）在source文件夹下新建文件夹imgs存储，利用markdown语法 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![title](imgs&#x2F;filename.jpg)</span><br></pre></td></tr></table></figure>
- 导入图片。在首页时会无法显示，且导入的图片会显示title</li>
-<li>将 <em>\</em>config.yml_ 文件中的 <em>post_asset_folder</em> 选项 设为 <strong>true</strong> 来打开。新建文章后会生成同名的文件夹，用于存放和该篇博客的资源。引用时语法为<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br><span class="line">slug 替换成对应的链接地址</span><br><span class="line">&#123;% asset_img filename.jpg 这是一张图片 %&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
+导入图片。在首页时会无法显示，且导入的图片会显示title</li>
+<li>将 <em>_config.yml</em> 文件中的 <em>post_asset_folder</em> 选项 设为 <strong>true</strong> 来打开。新建文章后会生成同名的文件夹，用于存放和该篇博客的资源。引用时语法为</li>
 </ol>
-<h3 id="导入版权"><a href="#导入版权" class="headerlink" title="导入版权"></a>导入版权</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#theme&#x2F;next&#x2F;_config.yml  主题名为next</span><br><span class="line">post_copyright:</span><br><span class="line">  enable: true </span><br><span class="line">  author: leenham</span><br><span class="line">  copyright_text: 作者拥有版权，请注明出处转载。</span><br></pre></td></tr></table></figure>
-
-<h3 id="添加二维码"><a href="#添加二维码" class="headerlink" title="添加二维码"></a>添加二维码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#theme&#x2F;next&#x2F;_config.yml  主题名为next</span><br><span class="line">donate:</span><br><span class="line">  enable: true </span><br><span class="line">  alipay_qr:  &#x2F;img&#x2F;AliPayQR.png</span><br><span class="line">  wechat_qr:  &#x2F;img&#x2F;WeChatQR.png </span><br><span class="line">  paypal_url:</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br><span class="line">slug 替换成对应的链接地址</span><br><span class="line">&#123;% asset_img filename.jpg 这是一张图片 %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="导入版权">导入版权</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#theme&#x2F;next&#x2F;_config.yml  主题名为next</span><br><span class="line">post_copyright:</span><br><span class="line">  enable: true </span><br><span class="line">  author: leenham</span><br><span class="line">  copyright_text: 作者拥有版权，请注明出处转载。</span><br></pre></td></tr></table></figure>
+<h3 id="添加二维码">添加二维码</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#theme&#x2F;next&#x2F;_config.yml  主题名为next</span><br><span class="line">donate:</span><br><span class="line">  enable: true </span><br><span class="line">  alipay_qr:  &#x2F;img&#x2F;AliPayQR.png</span><br><span class="line">  wechat_qr:  &#x2F;img&#x2F;WeChatQR.png </span><br><span class="line">  paypal_url:</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul>
+<h3 id="相关链接">相关链接</h3>
+<ul>
 <li><a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="noopener">hexo写作教程</a></li>
 <li><a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">hexo使用教程</a></li>
+<li><a href="https://www.jianshu.com/p/588ab3d22eb8" target="_blank" rel="noopener">安装hexo-renderer-markdown-it插件</a></li>
 </ul>
 
       
@@ -564,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写作相关"><span class="nav-number">2.</span> <span class="nav-text">写作相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入资源"><span class="nav-number">3.</span> <span class="nav-text">导入资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入版权"><span class="nav-number">4.</span> <span class="nav-text">导入版权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加二维码"><span class="nav-number">5.</span> <span class="nav-text">添加二维码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关链接"><span class="nav-number">6.</span> <span class="nav-text">相关链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写作相关"><span class="nav-number">2.</span> <span class="nav-text">写作相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#折叠代码"><span class="nav-number">3.</span> <span class="nav-text">折叠代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入资源"><span class="nav-number">4.</span> <span class="nav-text">导入资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入版权"><span class="nav-number">5.</span> <span class="nav-text">导入版权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加二维码"><span class="nav-number">6.</span> <span class="nav-text">添加二维码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关链接"><span class="nav-number">7.</span> <span class="nav-text">相关链接</span></a></li></ol></div>
             
 
           </div>
