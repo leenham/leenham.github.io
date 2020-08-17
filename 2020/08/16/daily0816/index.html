@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-lh.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-lh.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-lh.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab-lh.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="题目列表:  存在连续三个奇数的数组 使数组中所有元素相等的最小操作数    (周赛地址)[https:&#x2F;&#x2F;leetcode-cn.com&#x2F;contest&#x2F;weekly-contest-202&#x2F;]   存在连续三个奇数的数组  思路:暴力法 总结:学乖了,周赛前两题都是热身的,数据量不会太大,直接暴力求解. 我是用计数的方式破解,然而大佬的解法比我还要暴力,这才是用代码翻译题意!   代码 12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0817第202场周赛">
+<meta property="og:url" content="http://leenham.github.io/2020/08/16/daily0816/index.html">
+<meta property="og:site_name" content="Leenham&#39;s BLOG">
+<meta property="og:description" content="题目列表:  存在连续三个奇数的数组 使数组中所有元素相等的最小操作数    (周赛地址)[https:&#x2F;&#x2F;leetcode-cn.com&#x2F;contest&#x2F;weekly-contest-202&#x2F;]   存在连续三个奇数的数组  思路:暴力法 总结:学乖了,周赛前两题都是热身的,数据量不会太大,直接暴力求解. 我是用计数的方式破解,然而大佬的解法比我还要暴力,这才是用代码翻译题意!   代码 12">
+<meta property="article:published_time" content="2020-08-16T13:46:23.000Z">
+<meta property="article:modified_time" content="2020-08-17T06:49:23.227Z">
+<meta property="article:author" content="Leenham">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://leenham.github.io/2020/08/16/daily0816/"/>
+
+
+
+
+
+  <title>0817第202场周赛 | Leenham's BLOG</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leenham's BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">争取保持常更</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://leenham.github.io/2020/08/16/daily0816/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leenham">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/roroavatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leenham's BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">0817第202场周赛</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-16T21:46:23+08:00">
+                2020-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <a id="more"></a>
+<p>题目列表:</p>
+<ol>
+<li>存在连续三个奇数的数组</li>
+<li>使数组中所有元素相等的最小操作数</li>
+<li></li>
+<li></li>
+</ol>
+<p>(周赛地址)[<a href="https://leetcode-cn.com/contest/weekly-contest-202/" target="_blank" rel="noopener">https://leetcode-cn.com/contest/weekly-contest-202/</a>]</p>
+<!-- more -->
+<!-- 1st question -->
+<h3 id="存在连续三个奇数的数组">存在连续三个奇数的数组</h3>
+<ul>
+<li>思路:暴力法</li>
+<li>总结:学乖了,周赛前两题都是热身的,数据量不会太大,直接暴力求解.</li>
+<li>我是用计数的方式破解,然而大佬的解法比我还要暴力,这才是用代码翻译题意!</li>
+</ul>
+<details>
+<summary>代码</summary>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//c++ @JOHNKRAM</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">threeConsecutiveOdds</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=arr.<span class="built_in">size</span>(),i;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i+<span class="number">2</span> &lt; n;i++)<span class="keyword">if</span>((arr[i]&amp;<span class="number">1</span>)&amp;&amp;(arr[i+<span class="number">1</span>]&amp;<span class="number">1</span>)&amp;&amp;(arr[i+<span class="number">2</span>]&amp;<span class="number">1</span>))<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java my solution</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">threeConsecutiveOdds</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> oddcnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i]%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">                oddcnt++;</span><br><span class="line">                <span class="keyword">if</span>(oddcnt==<span class="number">3</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                oddcnt = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+<!-- end of 1st question -->
+<!-- 2nd question -->
+### 使数组中所有元素相等的最小操作数
+* 思路:题目描述得很复杂,但实际上数组确定,只需要求各个数到平均值的距离,然后求和即可. 读懂题意的那一刻,我就决定去找规律.最后我找到了规律.
+* 总结:常规带循环的方法:先求出数组平均值,然后求每个数和平均值差的绝对值.求和再除以2即为所求. 由于数组唯一,因此平均值+距离和都是和n直接相关的变量,因此找规律直接列公式也是可以的.
+<details>
+<summary>代码</summary>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java @JOHNKRAM</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//先求平均值,再求各数字到平均值的距离和的一半</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minOperations</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> s=<span class="number">0</span>,i,ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)s+=i&lt;&lt;<span class="number">1</span>|<span class="number">1</span>;  <span class="comment">//等价于s += 2*i+1, s为数组和</span></span><br><span class="line">        s/=n; <span class="comment">//s为平均值</span></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)ans+=max(i*<span class="number">2</span>+<span class="number">1</span>-s,s-i*<span class="number">2</span>-<span class="number">1</span>);<span class="comment">//这里max等价于abs((s-1)-i*2, i*2 - (s-1))</span></span><br><span class="line">        <span class="keyword">return</span> ans/<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minOperations</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//2--1</span></span><br><span class="line">        <span class="comment">//3--2=1</span></span><br><span class="line">        <span class="comment">//4--4=1+3</span></span><br><span class="line">        <span class="comment">//5--6=2+4</span></span><br><span class="line">        <span class="comment">//6--9=1+3+5</span></span><br><span class="line">        <span class="comment">//7--12=2+4+6</span></span><br><span class="line">        <span class="comment">//8--16=1+3+5+7</span></span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">3</span>)<span class="keyword">return</span> n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> n/<span class="number">2</span>*((n+<span class="number">1</span>)/<span class="number">2</span>);   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+<!-- end of 2nd question -->
+<!-- 3rd question -->
+### 两球之间的磁力
+* 思路: 求最小磁力的最大值,最终结果位于一定区间内,且最小磁力呈现单调性.即随着最小磁力增大,放置方案从有到无. 而最小磁力的最大值即为临界点. 因此使用二分法. 详见代码
+* 检测某个最小磁力值是否满足放置方案的逻辑:
+  * 设最小磁力为gap.使用贪心策略,即只要满足gap,便进行放置,若最终所有的球都能找到对应的篮子,则存在放置方案,否则不存在
+  * 因此,第一个篮子必放球.可以证明贪心策略是有效的.
+* 总结: 求最小值的最大值,这类题型可以用二分法来解.
+<details>
+<summary>代码</summary>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//c++ @JOHNKRAM</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDistance</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; <span class="built_in">position</span>, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        sort(<span class="built_in">position</span>.<span class="built_in">begin</span>(),<span class="built_in">position</span>.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">int</span> n=<span class="built_in">position</span>.<span class="built_in">size</span>(),i,j,l=<span class="number">0</span>,r=<span class="number">1</span>&lt;&lt;<span class="number">30</span>,mid,s;</span><br><span class="line">        <span class="keyword">while</span>(l+<span class="number">1</span>&lt;r)</span><br><span class="line">        &#123;</span><br><span class="line">            mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//for循环里负责处理最小磁力为mid时,最多能放置的球个数,记为s</span></span><br><span class="line">            <span class="comment">//处理逻辑是,第0个篮子放球,s从1开始计数</span></span><br><span class="line">            <span class="comment">//j记录上一个放了球的篮子编号,从0开始.</span></span><br><span class="line">            <span class="comment">//i记录当前遍历到的篮子编号.</span></span><br><span class="line">            <span class="comment">//若当前篮子和第j个篮子的间距 &gt;= 最小磁力mid</span></span><br><span class="line">            <span class="comment">//则j = i,表示在第j个篮子放置球,更新j和s</span></span><br><span class="line">            <span class="keyword">for</span>(i=<span class="number">1</span>,j=<span class="number">0</span>,s=<span class="number">1</span>;i&lt;n;i++)<span class="keyword">if</span>(<span class="built_in">position</span>[i]-<span class="built_in">position</span>[j]&gt;=mid)</span><br><span class="line">            &#123;</span><br><span class="line">                s++;</span><br><span class="line">                j=i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//通过比较最多能放置球的个数s和目标值m,来决定移动左/右边界</span></span><br><span class="line">            <span class="keyword">if</span>(s&gt;=m)l=mid;</span><br><span class="line">            <span class="keyword">else</span> r=mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">//处理最小磁力为gap时,是否存在放置方案,逻辑类同</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span>[] position,<span class="keyword">int</span> m,<span class="keyword">int</span> gap)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">1</span>;<span class="comment">//最多能放置球的个数</span></span><br><span class="line">        <span class="keyword">int</span> last = position[<span class="number">0</span>];<span class="comment">//记录最近一个放置了球的篮子编号,默认第0个篮子已经放置了球</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;position.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(position[i]-last&gt;=gap)&#123;</span><br><span class="line">                cnt++;</span><br><span class="line">                last = position[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt&gt;=m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDistance</span><span class="params">(<span class="keyword">int</span>[] position, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        Arrays.sort(position);</span><br><span class="line">        <span class="keyword">int</span> n = position.length;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = position[n-<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left+(right-left)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(check(position,m,mid))&#123;</span><br><span class="line">                left = mid+<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                right = mid-<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left-<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+<!-- end of 3rd question -->
+<!-- 4th question -->
+### 吃掉 N 个橘子的最少天数
+* 思路: 自底向上的动态规划,作为程序员,这么简单而且暴露的动态规划题目能难得到我? ..................Memory Limited Exceed......好吧,反正O(n)的方法肯定是不行的.考虑优化
+* 优化思路: 仔细思考一下逻辑,自底向上会求出dp[0....n]所有的值,其中很多数据是没有必要的,因此改成自顶向下的动态规划,用哈希表结构来存储已计算出的结果.
+* 总结: 自顶向下这层我也想到了,我最终卡壳在求dp[n-1]的时候,我还是用了dp[n] = dp[n-1] +1,这样本质上还是O(n).
+* btw: 贪心策略是行不通的,即当n能整除上的时候直接除以3,即dp[n] = dp[n/3]+1 if n%3==0,  [举个反例,n = 321]
+* 而dp[n] = min(dp[n/2]+n%2+1,dp[n/3]+n%3+1);才是更好的递推公式
+<details>
+<summary>代码</summary>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C++ @JOHNKRAM</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; dp;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minDays</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(dp.count(n)) <span class="keyword">return</span> dp[n];</span><br><span class="line">        <span class="keyword">int</span> res = <span class="built_in">min</span>(minDays(n / <span class="number">2</span>) + n % <span class="number">2</span> + <span class="number">1</span>, minDays(n / <span class="number">3</span>) + n % <span class="number">3</span> + <span class="number">1</span>);</span><br><span class="line">        dp[n] = res;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    HashMap&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDays</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">1</span>)<span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(n))</span><br><span class="line">            <span class="keyword">return</span> map.get(n);</span><br><span class="line">        <span class="keyword">int</span> val = Math.min(minDays(n/<span class="number">3</span>)+n%<span class="number">3</span>+<span class="number">1</span>,minDays(n/<span class="number">2</span>)+n%<span class="number">2</span>+<span class="number">1</span>);</span><br><span class="line">        map.put(n,val);</span><br><span class="line">        <span class="keyword">return</span> val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+<!-- end of 4th question -->
+<p><strong>一些说明</strong>：</p>
+<ul>
+<li>leetcode题解系列，提供两个题解。</li>
+<li>题解一从排名靠前的用户中选择我认为不错的解法（会附上用户id），简称为大神解法</li>
+<li>题解二为我自己写的答案，通常手打一遍大神解法，或为自己的解法，常使用java，简称为我的解法</li>
+</ul>
+<!-- end -->
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Leenham
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://leenham.github.io/2020/08/16/daily0816/" title="0817第202场周赛">http://leenham.github.io/2020/08/16/daily0816/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/09/daily0809/" rel="next" title="周赛0809">
+                <i class="fa fa-chevron-left"></i> 周赛0809
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/roroavatar.png"
+                alt="Leenham" />
+            
+              <p class="site-author-name" itemprop="name">Leenham</p>
+              <p class="site-description motion-element" itemprop="description">向生活致以崇高的敬意~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#存在连续三个奇数的数组"><span class="nav-number">1.</span> <span class="nav-text">存在连续三个奇数的数组</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leenham</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
